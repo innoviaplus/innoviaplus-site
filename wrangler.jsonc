@@ -1,0 +1,33 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"main": ".open-next/worker.js",
+	"name": "innoviaplus-site",
+	"compatibility_date": "2026-06-13",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			// Self-reference service binding, the service name must match the worker name
+			// see https://opennext.js.org/cloudflare/caching
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "innoviaplus-site"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "INNOVIAPLUS_DATA",
+			"id": "6ad8620e3b7a490695f2fd1d9a13a944"
+		}
+	],
+	"images": {
+		// Enable image optimization
+		// see https://opennext.js.org/cloudflare/howtos/image
+		"binding": "IMAGES"
+	}
+}
