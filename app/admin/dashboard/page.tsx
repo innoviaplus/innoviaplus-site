@@ -41,6 +41,11 @@ export default function AdminDashboard() {
     loadPages();
   }, [password, router, loadPages]);
 
+  useEffect(() => {
+    document.body.classList.add("admin-dashboard");
+    return () => document.body.classList.remove("admin-dashboard");
+  }, []);
+
   function handleLogout() {
     sessionStorage.removeItem("admin_password");
     router.push("/admin/login");
@@ -138,16 +143,36 @@ export default function AdminDashboard() {
   if (!password) return null;
 
   if (loading) {
-    return <div className="min-h-screen flex items-center justify-center bg-zinc-100 text-sm text-zinc-500">Yükleniyor...</div>;
+    return <div className="min-h-screen flex items-center justify-center bg-zinc-50 text-sm text-zinc-500">Yükleniyor...</div>;
   }
 
   return (
-    <div className="min-h-screen bg-zinc-100">
-      <div className="max-w-5xl mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-zinc-800">Admin Paneli</h1>
-          <button onClick={handleLogout} className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap">Çıkış Yap</button>
+    <>
+      <style>{`
+        body.admin-dashboard > div:has(a[href^="mailto"]),
+        body.admin-dashboard > div:has(img[alt="Innovia Plus"]),
+        body.admin-dashboard > footer {
+          display: none;
+        }
+      `}</style>
+      <div className="min-h-screen bg-zinc-50">
+        <div className="bg-white border-b border-zinc-200">
+          <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 bg-gradient-to-br from-[#FF6900] to-orange-500 rounded-xl flex items-center justify-center shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div>
+                <h1 className="text-base font-semibold text-zinc-900">Admin Paneli</h1>
+                <p className="text-[11px] text-zinc-400 leading-none mt-0.5">Sayfa Yönetimi</p>
+              </div>
+            </div>
+            <button onClick={handleLogout} className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">Çıkış Yap</button>
+          </div>
         </div>
+        <div className="max-w-5xl mx-auto px-4 py-6">
 
         {formMode === "none" ? (
           <>
@@ -301,7 +326,8 @@ export default function AdminDashboard() {
             </div>
           </div>
         )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
