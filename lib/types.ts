@@ -1,3 +1,5 @@
+export type SchemaType = "None" | "FAQPage" | "LocalBusiness" | "Service" | "Article";
+
 export interface PageData {
   id: string;
   createdAt: string;
@@ -15,6 +17,7 @@ export interface PageData {
   geoTags: string[];
   mapIframe: string;
   published: boolean;
+  schemaType: SchemaType;
 }
 
 export interface PageListItem {

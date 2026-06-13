@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPageBySlug } from "@/lib/kv";
+import type { SchemaType } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
@@ -10,6 +11,78 @@ type Props = { params: Promise<{ slug: string }> };
 
 function sanitizeHtml(html: string): string {
   return html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "");
+}
+
+function buildSchema(page: {
+  title: string; shortContent: string; longContent: string;
+  imageUrl: string; imageAlt: string; publishDate: string;
+  faqs: { question: string; answer: string }[];
+  geoTags: string[]; schemaType: SchemaType;
+}) {
+  const base = { "@context": "https://schema.org" as const };
+  const url = `https://innoviaplus.com`;
+
+  switch (page.schemaType) {
+    case "FAQPage":
+      if (page.faqs.length === 0) return null;
+      return {
+        ...base,
+        "@type": "FAQPage",
+        mainEntity: page.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      };
+
+    case "LocalBusiness":
+      return {
+        ...base,
+        "@type": "LocalBusiness",
+        name: "İnnoviaPlus",
+        description: page.shortContent || page.longContent?.substring(0, 200) || undefined,
+        image: page.imageUrl || undefined,
+        url,
+        telephone: "+90 540 990 6344",
+        email: "info@innoviaplus.com",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Yenidoğan, Haseki Sultan Sok. No2 A blok iç kapı No 108",
+          addressLocality: "Bayrampaşa",
+          addressRegion: "İstanbul",
+          addressCountry: "TR",
+        },
+        areaServed: page.geoTags.length > 0 ? page.geoTags : undefined,
+      };
+
+    case "Service":
+      return {
+        ...base,
+        "@type": "Service",
+        name: page.title,
+        description: page.shortContent || page.longContent?.substring(0, 200) || undefined,
+        image: page.imageUrl || undefined,
+        provider: { "@type": "Organization", name: "İnnoviaPlus" },
+        areaServed: page.geoTags.length > 0
+          ? page.geoTags.map((t) => ({ "@type": "City", name: t }))
+          : undefined,
+      };
+
+    case "Article":
+      return {
+        ...base,
+        "@type": "Article",
+        headline: page.title,
+        description: page.shortContent || undefined,
+        image: page.imageUrl || undefined,
+        datePublished: page.publishDate || undefined,
+        dateModified: page.publishDate || undefined,
+        author: { "@type": "Organization", name: "İnnoviaPlus" },
+      };
+
+    default:
+      return null;
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -34,22 +107,14 @@ export default async function LandingPage({ params }: Props) {
   const page = await getPageBySlug(slug);
   if (!page) notFound();
 
-  const faqSchema = page.faqs.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: page.faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  } : null;
+  const schema = buildSchema(page);
 
   return (
     <>
-      {faqSchema && (
+      {schema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       )}
 
@@ -82,15 +147,10 @@ export default async function LandingPage({ params }: Props) {
         )}
 
         {page.geoTags.length > 0 && (
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold text-zinc-800 mb-3">Hizmet Bölgelerimiz</h2>
-            <div className="flex flex-wrap gap-2">
-              {page.geoTags.map((tag, i) => (
-                <span key={i} className="bg-orange-50 text-orange-700 text-sm px-3 py-1 rounded-full">
-                  {tag}
-                </span>
-              ))}
-            </div>
+          <div className="hidden">
+            {page.geoTags.map((tag, i) => (
+              <span key={i}>{tag}</span>
+            ))}
           </div>
         )}
 

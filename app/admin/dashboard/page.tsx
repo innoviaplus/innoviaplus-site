@@ -8,6 +8,7 @@ const emptyForm: Omit<PageData, "id" | "createdAt" | "updatedAt"> = {
   title: "", slug: "", metaTitle: "", metaDescription: "",
   shortContent: "", longContent: "", imageUrl: "", imageAlt: "",
   publishDate: "", faqs: [], geoTags: [], mapIframe: "", published: false,
+  schemaType: "None",
 };
 
 function getPassword(): string | null {
@@ -61,7 +62,7 @@ export default function AdminDashboard() {
       longContent: data.longContent, imageUrl: data.imageUrl, imageAlt: data.imageAlt,
       publishDate: data.publishDate, faqs: data.faqs || [],
       geoTags: data.geoTags || [], mapIframe: data.mapIframe || "",
-      published: data.published,
+      published: data.published, schemaType: data.schemaType || "None",
     });
     setEditingId(id);
     setFormMode("edit");
@@ -145,7 +146,7 @@ export default function AdminDashboard() {
       <div className="max-w-5xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold text-zinc-800">Admin Paneli</h1>
-          <button onClick={handleLogout} className="text-sm text-zinc-500 hover:text-zinc-700">Çıkış Yap</button>
+          <button onClick={handleLogout} className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap">Çıkış Yap</button>
         </div>
 
         {formMode === "none" ? (
@@ -272,6 +273,17 @@ export default function AdminDashboard() {
                   <button onClick={() => removeGeoTag(i)} className="text-red-400 hover:text-red-600 text-xs shrink-0">Sil</button>
                 </div>
               ))}
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-xs font-medium text-zinc-500 mb-1">Yapılandırılmış Veri (Schema)</label>
+              <select value={form.schemaType} onChange={(e) => updateForm("schemaType", e.target.value)} className="w-full border border-zinc-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#FF6900] bg-white">
+                <option value="None">Yok</option>
+                <option value="FAQPage">SSS (FAQPage)</option>
+                <option value="LocalBusiness">Yerel İşletme (LocalBusiness)</option>
+                <option value="Service">Hizmet (Service)</option>
+                <option value="Article">Makale (Article)</option>
+              </select>
             </div>
 
             <div className="flex items-center gap-2 mb-6">
