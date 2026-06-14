@@ -155,7 +155,7 @@ export default function AdminDashboard() {
           display: none;
         }
       `}</style>
-      <div className="min-h-screen bg-zinc-50">
+      <div className="min-h-screen bg-zinc-50 w-full max-w-full overflow-x-hidden">
         <div className="bg-white border-b border-zinc-200">
           <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -172,7 +172,7 @@ export default function AdminDashboard() {
             <button onClick={handleLogout} className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">Çıkış Yap</button>
           </div>
         </div>
-        <div className="max-w-5xl mx-auto px-4 py-6">
+        <div className="max-w-5xl mx-auto w-full px-4 py-6">
 
         {formMode === "none" ? (
           <>
@@ -196,7 +196,7 @@ export default function AdminDashboard() {
                   <tbody>
                     {pages.map((p) => (
                       <tr key={p.id} className="border-b border-zinc-50 hover:bg-zinc-50 cursor-pointer" onClick={() => startEdit(p.id)}>
-                        <td className="px-4 py-3 font-medium text-zinc-800">{p.title}</td>
+                        <td className="px-4 py-3 font-medium text-zinc-800 break-words">{p.title}</td>
                         <td className="px-4 py-3 text-zinc-500 hidden sm:table-cell">/{p.slug}</td>
                         <td className="px-4 py-3">
                           <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${p.published ? "bg-green-100 text-green-700" : "bg-zinc-100 text-zinc-500"}`}>
