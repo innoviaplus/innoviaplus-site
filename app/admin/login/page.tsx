@@ -46,7 +46,7 @@ export default function AdminLogin() {
           display: none;
         }
       `}</style>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-100 to-zinc-200">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-100 to-zinc-200 overflow-x-hidden">
         <form
           onSubmit={handleSubmit}
           className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm"

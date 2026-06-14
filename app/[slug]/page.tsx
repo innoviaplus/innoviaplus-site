@@ -118,7 +118,7 @@ export default async function LandingPage({ params }: Props) {
         />
       )}
 
-      <article className="max-w-5xl mx-auto px-4 py-12">
+      <article className="max-w-5xl mx-auto px-4 py-12 overflow-x-hidden">
         {page.imageUrl && (
           <img
             src={page.imageUrl}
@@ -127,7 +127,7 @@ export default async function LandingPage({ params }: Props) {
           />
         )}
 
-        <h1 className="text-3xl md:text-4xl font-bold text-zinc-800 mb-4">{page.title}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-zinc-800 mb-4 break-words">{page.title}</h1>
 
         {page.publishDate && (
           <p className="text-sm text-zinc-400 mb-6">
@@ -136,12 +136,12 @@ export default async function LandingPage({ params }: Props) {
         )}
 
         {page.shortContent && (
-          <p className="text-lg text-zinc-600 leading-relaxed mb-8">{page.shortContent}</p>
+          <p className="text-lg text-zinc-600 leading-relaxed mb-8 break-words">{page.shortContent}</p>
         )}
 
         {page.longContent && (
           <div
-            className="prose prose-zinc max-w-none mb-12"
+            className="prose prose-zinc max-w-none mb-12 overflow-x-auto [&_img]:max-w-full [&_img]:h-auto"
             dangerouslySetInnerHTML={{ __html: sanitizeHtml(page.longContent) }}
           />
         )}
@@ -160,10 +160,10 @@ export default async function LandingPage({ params }: Props) {
             <div className="space-y-3">
               {page.faqs.map((faq, i) => (
                 <details key={i} className="bg-white rounded-xl border border-zinc-200 overflow-hidden">
-                  <summary className="px-4 py-3 text-sm font-medium text-zinc-800 cursor-pointer hover:bg-zinc-50">
+                  <summary className="px-4 py-3 text-sm font-medium text-zinc-800 cursor-pointer hover:bg-zinc-50 break-words">
                     {faq.question}
                   </summary>
-                  <p className="px-4 py-3 text-sm text-zinc-600 border-t border-zinc-100">{faq.answer}</p>
+                  <p className="px-4 py-3 text-sm text-zinc-600 border-t border-zinc-100 break-words">{faq.answer}</p>
                 </details>
               ))}
             </div>
@@ -171,7 +171,7 @@ export default async function LandingPage({ params }: Props) {
         )}
 
         {page.mapIframe && (
-          <div className="mb-8 rounded-2xl overflow-hidden border border-zinc-200 [&_iframe]:max-w-full [&_iframe]:h-auto" dangerouslySetInnerHTML={{ __html: sanitizeHtml(page.mapIframe) }} />
+          <div className="mb-8 rounded-2xl overflow-hidden border border-zinc-200 max-w-full [&_iframe]:max-w-full [&_iframe]:h-auto" dangerouslySetInnerHTML={{ __html: sanitizeHtml(page.mapIframe) }} />
         )}
       </article>
     </>
