@@ -123,7 +123,7 @@ export default async function LandingPage({ params }: Props) {
           <img
             src={page.imageUrl}
             alt={page.imageAlt || page.title}
-            className="w-full h-64 md:h-96 object-cover rounded-2xl mb-8"
+            className="w-full h-48 sm:h-64 md:h-96 object-cover rounded-2xl mb-8"
           />
         )}
 
@@ -171,7 +171,7 @@ export default async function LandingPage({ params }: Props) {
         )}
 
         {page.mapIframe && (
-          <div className="mb-8 rounded-2xl overflow-hidden border border-zinc-200" dangerouslySetInnerHTML={{ __html: sanitizeHtml(page.mapIframe) }} />
+          <div className="mb-8 rounded-2xl overflow-hidden border border-zinc-200 [&_iframe]:max-w-full [&_iframe]:h-auto" dangerouslySetInnerHTML={{ __html: sanitizeHtml(page.mapIframe) }} />
         )}
       </article>
     </>

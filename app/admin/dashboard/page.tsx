@@ -182,7 +182,7 @@ export default function AdminDashboard() {
             {pages.length === 0 ? (
               <p className="text-zinc-500 text-sm">Henüz sayfa eklenmemiş.</p>
             ) : (
-              <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+              <div className="bg-white rounded-2xl shadow-sm overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-zinc-100 text-left text-zinc-500">
