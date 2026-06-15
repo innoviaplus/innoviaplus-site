@@ -51,18 +51,18 @@ export default function PressMoldsSection() {
               ))}
             </ul>
 
-            <div className="mt-6 flex justify-end">
+            <a href="/hizmetlerimiz/pres-kalibi-imalati" className="mt-6 flex justify-end group">
               <div className="flex items-stretch">
-                <span className="bg-slate-900 text-white text-sm font-semibold px-4 flex items-center">
+                <span className="bg-slate-900 text-white text-sm font-semibold px-4 flex items-center group-hover:bg-slate-700 transition-colors">
                   Devamını Oku
                 </span>
-                <span className="bg-orange-500 w-11 flex items-center justify-center">
+                <span className="bg-orange-500 w-11 flex items-center justify-center group-hover:bg-orange-600 transition-colors">
                   <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
                     <ArrowRight size={14} className="text-slate-900" />
                   </span>
                 </span>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
