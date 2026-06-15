@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 const quickLinks = [
@@ -47,9 +48,9 @@ function LinkedinIcon({ size }: { size: number }) {
 }
 
 const socialLinks = [
-  { icon: FacebookIcon, href: "#", label: "Facebook" },
-  { icon: InstagramIcon, href: "#", label: "Instagram" },
-  { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
+  { icon: FacebookIcon, href: "https://www.facebook.com/profile.php?id=61552624015441", label: "Facebook" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/innoviaplussanayi", label: "Instagram" },
+  { icon: LinkedinIcon, href: "https://www.linkedin.com/company/i%CC%87nnovi%CC%87a-plus-teknoloji%CC%87-ve-dani%C5%9Fmanlik-sanayi%CC%87-ti%CC%87caret-li%CC%87mi%CC%87ted-%C5%9Fi%CC%87rketi%CC%87/", label: "LinkedIn" },
 ];
 
 export default function Footer() {
@@ -58,7 +59,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
           <div>
-            <img src="/images/innoviaplus-logo-beyaz.webp" alt="Innovia Plus" className="h-14 w-auto mb-4" />
+            <Image src="/images/innoviaplus-logo-beyaz.webp" alt="Innovia Plus" width={160} height={56} className="h-14 w-auto mb-4" />
             <p className="text-sm leading-relaxed text-gray-400">
               Endüstriyel kalıp imalatı ve hassas mühendislik çözümlerinde 25
               yılı aşkın tecrübeyle global standartlarda üretim yapıyoruz.

@@ -5,6 +5,24 @@ export const metadata: Metadata = {
   title: "Endüstriyel Hidrolik ve Manuel Pres İmalatı | İnnovia Plus",
   description:
     "İnnovia Plus ile Ar-Ge ve endüstriyel üretime özel mikron hassasiyetli hidrolik ve manuel pres imalatı. Kusursuz basınç kontrolü için hemen teklif alın!",
+  alternates: { canonical: "https://innoviaplus.com/hizmetlerimiz/hidrolik-ve-manuel-pres-imalati" },
+  openGraph: {
+    title: "Endüstriyel Hidrolik ve Manuel Pres İmalatı | İnnovia Plus",
+    description:
+      "İnnovia Plus ile Ar-Ge ve endüstriyel üretime özel hidrolik ve manuel pres imalatı.",
+    url: "https://innoviaplus.com/hizmetlerimiz/hidrolik-ve-manuel-pres-imalati",
+    siteName: "Innovia Plus",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/images/innoviaplus-Open-Graph.jpg", width: 1200, height: 630, alt: "Hidrolik ve Manuel Pres İmalatı" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Endüstriyel Hidrolik ve Manuel Pres İmalatı | İnnovia Plus",
+    description:
+      "İnnovia Plus ile Ar-Ge ve endüstriyel üretime özel hidrolik ve manuel pres imalatı.",
+    images: ["/images/innoviaplus-Open-Graph.jpg"],
+  },
 };
 
 export default function HidrolikVeManuelPresImalatiPage() {
@@ -19,7 +37,7 @@ export default function HidrolikVeManuelPresImalatiPage() {
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id":
-                "https://innoviaplus.com/hizmetler/hidrolik-manuel-pres-imalati",
+                "https://innoviaplus.com/hizmetlerimiz/hidrolik-ve-manuel-pres-imalati",
             },
             name: "Profesyonel Hidrolik ve Manuel Pres İmalatı",
             provider: {

@@ -2,10 +2,27 @@ import type { Metadata } from "next";
 import { ArrowRight, Mail, DollarSign, Settings, Box, Ruler, Flame, Wrench, ChevronDown } from "lucide-react";
 
 export const metadata: Metadata = {
-  title:
-    "Pres Kalıbı İmalatı ve Mühendislik Çözümleri | İnnovia Plus",
+  title: "Pres Kalıbı İmalatı ve Mühendislik Çözümleri | İnnovia Plus",
   description:
     "İnnovia Plus ile yüksek hassasiyetli ve uzun ömürlü pres kalıbı imalatı. Endüstriyel hatlarınızda sıfır hata ve yüksek hız için hemen ücretsiz teklif alın!",
+  alternates: { canonical: "https://innoviaplus.com/hizmetlerimiz/pres-kalibi-imalati" },
+  openGraph: {
+    title: "Pres Kalıbı İmalatı ve Mühendislik Çözümleri | İnnovia Plus",
+    description:
+      "İnnovia Plus ile yüksek hassasiyetli ve uzun ömürlü pres kalıbı imalatı. Endüstriyel hatlarınızda sıfır hata ve yüksek hız için hemen ücretsiz teklif alın!",
+    url: "https://innoviaplus.com/hizmetlerimiz/pres-kalibi-imalati",
+    siteName: "Innovia Plus",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/images/innoviaplus-Open-Graph.jpg", width: 1200, height: 630, alt: "Pres Kalıbı İmalatı" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pres Kalıbı İmalatı ve Mühendislik Çözümleri | İnnovia Plus",
+    description:
+      "İnnovia Plus ile yüksek hassasiyetli ve uzun ömürlü pres kalıbı imalatı.",
+    images: ["/images/innoviaplus-Open-Graph.jpg"],
+  },
 };
 
 export default function PresKalibiImalatiPage() {
@@ -20,7 +37,7 @@ export default function PresKalibiImalatiPage() {
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id":
-                "https://innoviaplus.com/hizmetler/pres-kalibi-imalati",
+                "https://innoviaplus.com/hizmetlerimiz/pres-kalibi-imalati",
             },
             name: "Yüksek Hassasiyetli ve Uzun Ömürlü Pres Kalıbı İmalatı Çözümleri",
             provider: {

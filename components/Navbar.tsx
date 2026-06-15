@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   House,
   Server,
@@ -36,7 +37,7 @@ export default function Navbar() {
       <div className="w-full flex justify-center px-0 md:px-4">
         <div className="w-full max-w-[1300px] h-[90px] bg-white flex items-center justify-between px-4 md:px-8 shadow-sm md:rounded-b-2xl">
           <a href="/" className="shrink-0 flex items-center">
-            <img src="/images/innoviaplus-logo.webp" alt="Innovia Plus" className="h-14 w-auto" />
+            <Image src="/images/innoviaplus-logo.webp" alt="Innovia Plus" width={160} height={56} className="h-14 w-auto" />
           </a>
 
           <span className="text-base md:text-lg truncate max-w-[130px] md:max-w-none" style={{ fontFamily: "var(--font-caveat), cursive", background: "linear-gradient(90deg,#71717a 0%,#FF6900 40%,#71717a 80%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", animation: "techShimmer 3s linear infinite" }}>

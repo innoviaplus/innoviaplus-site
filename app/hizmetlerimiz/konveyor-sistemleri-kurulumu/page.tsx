@@ -5,6 +5,24 @@ export const metadata: Metadata = {
   title: "Endüstriyel Konveyör Sistemleri ve Kurulumu | İnnovia Plus",
   description:
     "İnnovia Plus ile fabrikanıza özel bantlı, rulolu ve modüler konveyör sistemleri kurulumu. Endüstri 4.0 uyumlu otomasyon çözümleri için hemen teklif alın!",
+  alternates: { canonical: "https://innoviaplus.com/hizmetlerimiz/konveyor-sistemleri-kurulumu" },
+  openGraph: {
+    title: "Endüstriyel Konveyör Sistemleri ve Kurulumu | İnnovia Plus",
+    description:
+      "İnnovia Plus ile fabrikanıza özel bantlı, rulolu ve modüler konveyör sistemleri kurulumu.",
+    url: "https://innoviaplus.com/hizmetlerimiz/konveyor-sistemleri-kurulumu",
+    siteName: "Innovia Plus",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/images/innoviaplus-Open-Graph.jpg", width: 1200, height: 630, alt: "Konveyör Sistemleri Kurulumu" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Endüstriyel Konveyör Sistemleri ve Kurulumu | İnnovia Plus",
+    description:
+      "İnnovia Plus ile fabrikanıza özel konveyör sistemleri kurulumu.",
+    images: ["/images/innoviaplus-Open-Graph.jpg"],
+  },
 };
 
 export default function KonveyorSistemleriKurulumuPage() {
@@ -19,7 +37,7 @@ export default function KonveyorSistemleriKurulumuPage() {
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id":
-                "https://innoviaplus.com/hizmetler/konveyor-sistemleri-kurulumu",
+                "https://innoviaplus.com/hizmetlerimiz/konveyor-sistemleri-kurulumu",
             },
             name: "Güçlü ve Kesintisiz Üretim İçin Profesyonel Konveyör Sistemleri Kurulumu",
             provider: {

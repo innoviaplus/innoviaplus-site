@@ -5,6 +5,24 @@ export const metadata: Metadata = {
   title: "Özel Ölçü Ayarlanabilir Dr.Blade Sistemleri | İnnovia Plus",
   description:
     "İnnovia Plus ile mikron hassasiyetinde özel ölçü ayarlanabilir Dr.blade sistemleri! İnce film, seramik ve batarya üretimi için hemen ücretsiz teklif alın.",
+  alternates: { canonical: "https://innoviaplus.com/hizmetlerimiz/dr-blade-sistemleri" },
+  openGraph: {
+    title: "Özel Ölçü Ayarlanabilir Dr.Blade Sistemleri | İnnovia Plus",
+    description:
+      "İnnovia Plus ile mikron hassasiyetinde özel ölçü ayarlanabilir Dr.blade sistemleri!",
+    url: "https://innoviaplus.com/hizmetlerimiz/dr-blade-sistemleri",
+    siteName: "Innovia Plus",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/images/innoviaplus-Open-Graph.jpg", width: 1200, height: 630, alt: "Dr.Blade Sistemleri" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Özel Ölçü Ayarlanabilir Dr.Blade Sistemleri | İnnovia Plus",
+    description:
+      "İnnovia Plus ile mikron hassasiyetinde özel ölçü ayarlanabilir Dr.blade sistemleri!",
+    images: ["/images/innoviaplus-Open-Graph.jpg"],
+  },
 };
 
 export default function DrBladeSistemleriPage() {
@@ -19,7 +37,7 @@ export default function DrBladeSistemleriPage() {
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id":
-                "https://innoviaplus.com/hizmetler/dr-blade-sistemleri",
+                "https://innoviaplus.com/hizmetlerimiz/dr-blade-sistemleri",
             },
             name: "Mikron Hassasiyetinde Özel Ölçü Ayarlanabilir Dr.blade Sistemleri",
             provider: {

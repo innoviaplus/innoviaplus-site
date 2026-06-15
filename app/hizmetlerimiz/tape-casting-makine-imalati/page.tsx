@@ -5,6 +5,24 @@ export const metadata: Metadata = {
   title: "Tape Casting Makine İmalatı ve Şerit Döküm Sistemleri | İnnovia Plus",
   description:
     "İnnovia Plus ile mikron hassasiyetli tape casting (şerit döküm) makine imalatı! Seramik ve batarya üretimine özel 20 metrelik hatlar için hemen teklif alın.",
+  alternates: { canonical: "https://innoviaplus.com/hizmetlerimiz/tape-casting-makine-imalati" },
+  openGraph: {
+    title: "Tape Casting Makine İmalatı ve Şerit Döküm Sistemleri | İnnovia Plus",
+    description:
+      "İnnovia Plus ile mikron hassasiyetli tape casting (şerit döküm) makine imalatı!",
+    url: "https://innoviaplus.com/hizmetlerimiz/tape-casting-makine-imalati",
+    siteName: "Innovia Plus",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/images/innoviaplus-Open-Graph.jpg", width: 1200, height: 630, alt: "Tape Casting Makine İmalatı" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tape Casting Makine İmalatı ve Şerit Döküm Sistemleri | İnnovia Plus",
+    description:
+      "İnnovia Plus ile mikron hassasiyetli tape casting (şerit döküm) makine imalatı!",
+    images: ["/images/innoviaplus-Open-Graph.jpg"],
+  },
 };
 
 export default function TapeCastingMakineImalatiPage() {
@@ -19,7 +37,7 @@ export default function TapeCastingMakineImalatiPage() {
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id":
-                "https://innoviaplus.com/hizmetler/tape-casting-makine-imalati",
+                "https://innoviaplus.com/hizmetlerimiz/tape-casting-makine-imalati",
             },
             name: "İleri Teknoloji ve Yüksek Hassasiyetli Tape Casting Makine İmalatı",
             provider: {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import type { PageData, PageListItem } from "@/lib/types";
 
@@ -36,10 +36,27 @@ export default function AdminDashboard() {
     }
   }, []);
 
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const resetTimeout = useCallback(() => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      sessionStorage.removeItem("admin_password");
+      router.push("/admin/login");
+    }, 30 * 60 * 1000);
+  }, [router]);
+
   useEffect(() => {
     if (!password) { router.push("/admin/login"); return; }
     loadPages();
-  }, [password, router, loadPages]);
+    resetTimeout();
+    const events = ["mousedown", "keydown", "scroll", "touchstart"];
+    events.forEach((e) => window.addEventListener(e, resetTimeout));
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      events.forEach((e) => window.removeEventListener(e, resetTimeout));
+    };
+  }, [password, router, loadPages, resetTimeout]);
 
   useEffect(() => {
     document.body.classList.add("admin-dashboard");
@@ -85,11 +102,6 @@ export default function AdminDashboard() {
         body: JSON.stringify({ ...form, password }),
       });
       if (res.ok) {
-        await fetch("/api/revalidate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ password, slug: form.slug }),
-        });
         setFormMode("none");
         await loadPages();
       }

@@ -1,4 +1,29 @@
+import type { Metadata } from "next";
 import { Cpu, Leaf, Users, TrendingUp } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Hakkımızda | Innovia Plus — Endüstriyel Kalıp ve Hassas Mühendislik",
+  description:
+    "2015 yılında kurulan Innovia Plus, CNC işleme ve makine imalatında yenilikçi çözümler sunan, 25 yılı aşkın tecrübeyle global standartlarda üretim yapan lider firma.",
+  alternates: { canonical: "https://innoviaplus.com/hakkimizda" },
+  openGraph: {
+    title: "Hakkımızda | Innovia Plus",
+    description:
+      "2015 yılında kurulan Innovia Plus, CNC işleme ve makine imalatında yenilikçi çözümler sunan lider firma.",
+    url: "https://innoviaplus.com/hakkimizda",
+    siteName: "Innovia Plus",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/images/innoviaplus-Open-Graph.jpg", width: 1200, height: 630, alt: "Innovia Plus Hakkımızda" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hakkımızda | Innovia Plus",
+    description:
+      "2015 yılında kurulan Innovia Plus, CNC işleme ve makine imalatında yenilikçi çözümler sunan lider firma.",
+    images: ["/images/innoviaplus-Open-Graph.jpg"],
+  },
+};
 
 const values = [
   {
@@ -116,7 +141,7 @@ export default function HakkimizdaPage() {
               >
                 <img
                   src={`/images/referanslogo/logo-${i + 1}.webp`}
-                  alt={`Referans logosu ${i + 1}`}
+                  alt={`Innovia Plus iş ortağı referans logosu ${i + 1}`}
                   className="h-14 w-full object-contain transition-transform duration-300 hover:scale-110"
                 />
               </div>

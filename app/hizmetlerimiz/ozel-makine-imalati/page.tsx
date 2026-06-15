@@ -5,6 +5,24 @@ export const metadata: Metadata = {
   title: "Özel Makine İmalatı ve Endüstriyel Çözümler | İnnovia Plus",
   description:
     "İnnovia Plus ile üretim hattınıza özel makine imalatı çözümleri! PLC otomasyonu, mekanik tasarım ve sıfır hata toleransı ile hemen ücretsiz teklif alın.",
+  alternates: { canonical: "https://innoviaplus.com/hizmetlerimiz/ozel-makine-imalati" },
+  openGraph: {
+    title: "Özel Makine İmalatı ve Endüstriyel Çözümler | İnnovia Plus",
+    description:
+      "İnnovia Plus ile üretim hattınıza özel makine imalatı çözümleri! PLC otomasyonu, mekanik tasarım ve sıfır hata toleransı.",
+    url: "https://innoviaplus.com/hizmetlerimiz/ozel-makine-imalati",
+    siteName: "Innovia Plus",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/images/innoviaplus-Open-Graph.jpg", width: 1200, height: 630, alt: "Özel Makine İmalatı" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Özel Makine İmalatı ve Endüstriyel Çözümler | İnnovia Plus",
+    description:
+      "İnnovia Plus ile üretim hattınıza özel makine imalatı çözümleri!",
+    images: ["/images/innoviaplus-Open-Graph.jpg"],
+  },
 };
 
 export default function OzelMakineImalatiPage() {
@@ -19,7 +37,7 @@ export default function OzelMakineImalatiPage() {
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id":
-                "https://innoviaplus.com/hizmetler/ozel-makine-imalati",
+                "https://innoviaplus.com/hizmetlerimiz/ozel-makine-imalati",
             },
             name: "İhtiyaçlarınıza Göre Tasarlanan Özel Makine İmalatı Çözümleri",
             provider: {

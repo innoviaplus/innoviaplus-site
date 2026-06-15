@@ -5,6 +5,24 @@ export const metadata: Metadata = {
   title: "Profesyonel CNC Torna İşleme ve Talaşlı İmalat | İnnovia Plus",
   description:
     "İnnovia Plus ile mikron hassasiyetinde CNC torna işleme ve talaşlı imalat çözümleri! Tüm malzemelerde sıfır hata ile üretim için hemen ücretsiz teklif alın.",
+  alternates: { canonical: "https://innoviaplus.com/hizmetlerimiz/cnc-torna-isleme" },
+  openGraph: {
+    title: "Profesyonel CNC Torna İşleme ve Talaşlı İmalat | İnnovia Plus",
+    description:
+      "İnnovia Plus ile mikron hassasiyetinde CNC torna işleme ve talaşlı imalat çözümleri!",
+    url: "https://innoviaplus.com/hizmetlerimiz/cnc-torna-isleme",
+    siteName: "Innovia Plus",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/images/innoviaplus-Open-Graph.jpg", width: 1200, height: 630, alt: "CNC Torna İşleme" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Profesyonel CNC Torna İşleme ve Talaşlı İmalat | İnnovia Plus",
+    description:
+      "İnnovia Plus ile mikron hassasiyetinde CNC torna işleme ve talaşlı imalat çözümleri!",
+    images: ["/images/innoviaplus-Open-Graph.jpg"],
+  },
 };
 
 export default function CncTornaIslemePage() {
@@ -18,7 +36,7 @@ export default function CncTornaIslemePage() {
             "@type": "Service",
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": "https://innoviaplus.com/hizmetler/cnc-torna-isleme",
+              "@id": "https://innoviaplus.com/hizmetlerimiz/cnc-torna-isleme",
             },
             name: "Kusursuz Hassasiyet ve Yüksek Hız: Profesyonel CNC Torna İşleme Çözümleri",
             provider: {

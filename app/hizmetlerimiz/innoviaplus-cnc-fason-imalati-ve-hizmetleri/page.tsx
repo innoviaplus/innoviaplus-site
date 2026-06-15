@@ -2,9 +2,27 @@ import type { Metadata } from "next";
 import { DollarSign, ArrowRight, Mail, Cpu, RotateCw, Zap, Layers, BarChart3, ChevronDown } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "CNC Fason İmalatı Nedir? Hizmetleri ve Avantajları",
+  title: "CNC Fason İmalatı Nedir? Hizmetleri ve Avantajları | İnnovia Plus",
   description:
     "CNC fason imalatı ile üretim maliyetlerini düşürün! Innoviaplus kalitesiyle CNC freze, torna ve yüzey işleme süreçlerinde aynı gün hızlı teklif alın.",
+  alternates: { canonical: "https://innoviaplus.com/hizmetlerimiz/innoviaplus-cnc-fason-imalati-ve-hizmetleri" },
+  openGraph: {
+    title: "CNC Fason İmalatı Nedir? Hizmetleri ve Avantajları | İnnovia Plus",
+    description:
+      "CNC fason imalatı ile üretim maliyetlerini düşürün! Innoviaplus kalitesiyle CNC freze, torna ve yüzey işleme çözümleri.",
+    url: "https://innoviaplus.com/hizmetlerimiz/innoviaplus-cnc-fason-imalati-ve-hizmetleri",
+    siteName: "Innovia Plus",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/images/innoviaplus-Open-Graph.jpg", width: 1200, height: 630, alt: "CNC Fason İmalatı" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CNC Fason İmalatı Nedir? Hizmetleri ve Avantajları | İnnovia Plus",
+    description:
+      "CNC fason imalatı ile üretim maliyetlerini düşürün!",
+    images: ["/images/innoviaplus-Open-Graph.jpg"],
+  },
 };
 
 export default function CncFasonImalatiPage() {
