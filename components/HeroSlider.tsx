@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 
 interface SlideData {
@@ -55,10 +56,9 @@ export default function HeroSlider() {
             i === current ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
         >
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slide.image})` }}
-          />
+          <div className="absolute inset-0 overflow-hidden">
+            <Image src={slide.image} alt={slide.title} fill className="object-cover" priority={i === 0} />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent" />
           <div className="relative h-full flex items-center px-6 md:px-16 lg:px-24">
             <div className="max-w-lg">

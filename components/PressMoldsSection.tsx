@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Check, ArrowRight } from "lucide-react";
 
 const features = [
@@ -20,10 +21,9 @@ export default function PressMoldsSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center overflow-x-hidden">
           <div className="relative w-full h-[400px] md:h-[500px]">
-            <div
-              className="absolute inset-0 rounded-3xl bg-cover bg-center shadow-lg"
-              style={{ backgroundImage: "url(/images/press-mold-placeholder.webp)" }}
-            />
+            <div className="absolute inset-0 rounded-3xl shadow-lg overflow-hidden">
+              <Image src="/images/press-mold-placeholder.webp" alt="Yüksek Hassasiyetli Pres Kalıbı Setleri" fill className="object-cover" />
+            </div>
           </div>
 
           <div className="bg-white shadow-lg rounded-2xl p-8 md:p-10">

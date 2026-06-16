@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Check, ArrowRight } from "lucide-react";
 
 const features = [
@@ -20,14 +21,12 @@ export default function TapeCasting() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center overflow-x-hidden">
           <div className="relative w-full h-[400px] md:h-[500px]">
-            <div
-              className="absolute top-0 right-0 w-[75%] h-full rounded-3xl bg-cover bg-center shadow-lg border-4 border-white"
-              style={{ backgroundImage: "url(/images/tape-casting-main.webp)" }}
-            />
-            <div
-              className="absolute bottom-6 left-0 w-44 h-44 md:w-52 md:h-52 rounded-3xl bg-cover bg-center shadow-lg border-4 border-white"
-              style={{ backgroundImage: "url(/images/tape-casting-small.webp)" }}
-            />
+            <div className="absolute top-0 right-0 w-[75%] h-full rounded-3xl shadow-lg border-4 border-white overflow-hidden">
+              <Image src="/images/tape-casting-main.webp" alt="Tam Otomatik Film Aplikatörü" fill className="object-cover" />
+            </div>
+            <div className="absolute bottom-6 left-0 w-44 h-44 md:w-52 md:h-52 rounded-3xl shadow-lg border-4 border-white overflow-hidden">
+              <Image src="/images/tape-casting-small.webp" alt="Tape Casting Detay" fill className="object-cover" />
+            </div>
           </div>
 
           <div className="bg-white shadow-lg rounded-2xl p-8 md:p-10">

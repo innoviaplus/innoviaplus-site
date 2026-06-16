@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowRight, Wrench } from "lucide-react";
 import { services } from "@/lib/services";
 
@@ -21,10 +22,9 @@ export default function ServicesSection({ limit }: ServicesSectionProps) {
           {services.slice(0, limit ?? services.length).map((service) => (
             <a key={service.title} href={service.href || "/"} className="group block pb-8 transition-all duration-300 hover:-translate-y-2">
               <div className="h-64 overflow-hidden rounded-2xl shadow-lg group-hover:shadow-2xl ring-2 ring-transparent group-hover:ring-orange-500 transition-all duration-300">
-                <div
-                  className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${service.image})` }}
-                />
+                <div className="relative w-full h-full">
+                  <Image src={service.image} alt={service.title} fill className="object-cover" />
+                </div>
               </div>
 
               <div className="relative z-10 w-[90%] mx-auto -mt-20 bg-white shadow-xl border-l-[12px] border-slate-900 rounded-2xl p-6 group-hover:shadow-2xl transition-all duration-300">
